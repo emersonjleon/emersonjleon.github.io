@@ -1,1 +1,56 @@
-hola mundo
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Preguntas con voz</title>
+</head>
+<body>
+  <h1>Pregunta para ti:</h1>
+  <p id="pregunta">¿Cuál es tu animal favorito?</p>
+  
+  <button id="startBtn">🎙️ Empezar a grabar</button>
+  <button id="stopBtn" disabled>⏹️ Detener</button>
+  
+  <h3>Tu respuesta grabada:</h3>
+  <audio id="audioPlayback" controls></audio>
+  <a id="downloadLink" href="#" download="respuesta.webm">Descargar respuesta</a>
+  
+  <script>
+    let mediaRecorder;
+    let audioChunks = [];
+    
+    const startBtn = document.getElementById("startBtn");
+    const stopBtn = document.getElementById("stopBtn");
+    const audioPlayback = document.getElementById("audioPlayback");
+    const downloadLink = document.getElementById("downloadLink");
+
+    startBtn.addEventListener("click", async () => {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mediaRecorder = new MediaRecorder(stream);
+      
+      mediaRecorder.ondataavailable = (e) => {
+        audioChunks.push(e.data);
+      };
+      
+      mediaRecorder.onstop = () => {
+        const blob = new Blob(audioChunks, { type: "audio/webm" });
+        const url = URL.createObjectURL(blob);
+        audioPlayback.src = url;
+        downloadLink.href = url;
+        audioChunks = [];
+      };
+      
+      mediaRecorder.start();
+      startBtn.disabled = true;
+      stopBtn.disabled = false;
+    });
+
+    stopBtn.addEventListener("click", () => {
+      mediaRecorder.stop();
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
+    });
+  </script>
+</body>
+</html>
+
