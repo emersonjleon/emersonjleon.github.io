@@ -302,10 +302,12 @@ El corazón de Pandas reside en dos estructuras fundamentales: las Series  y el 
                 .then(data => {
                     document.getElementById('loadingMsg').classList.add('hidden');
                     if (data.status === 'success') {
-                        document.getElementById('successMsg').classList.remove('hidden');
+			window.location.href = 'exito.html';
+			// viejo, muestra el exito en la misma página.
+			//document.getElementById('successMsg').classList.remove('hidden');
                         // Opcional: Bloquear todos los inputs para que no los editen más
-                        const inputs = document.querySelectorAll('input');
-                        inputs.forEach(input => input.disabled = true);
+                        //const inputs = document.querySelectorAll('input');
+                        //inputs.forEach(input => input.disabled = true);
                     } else {
                         document.getElementById('errorMsg').classList.remove('hidden');
                         document.getElementById('btnEnviar').classList.remove('hidden');
