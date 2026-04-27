@@ -64,6 +64,9 @@
         <form id="examenForm">
             <h2 class="text-xl font-bold text-slate-700 mb-4 mt-8 border-b pb-2">Sección 1: Árboles de decisión</h2>
 
+	    <p> Un árbol de decisión es un potente algoritmo de aprendizaje supervisado, de naturaleza no paramétrica, que se utiliza tanto para tareas de clasificación como de regresión. Su estructura emula un diagrama de flujo o una jerarquía lógica: comienza en un nodo raíz que evalúa todo el conjunto de datos y se divide en ramas basándose en preguntas condicionales sobre las características (features) de los datos. Cada nodo interno representa un punto de decisión o prueba sobre una variable, cada rama ilustra el resultado de esa prueba, y los nodos hoja terminales entregan la predicción final (una clase específica o un valor numérico). Durante el entrenamiento, el algoritmo particiona el espacio de datos de forma recursiva, buscando siempre el corte que maximice la homogeneidad de los grupos resultantes. Debido a que su estructura refleja la forma humana de tomar decisiones paso a paso, son modelos altamente interpretables.
+</p>
+	    
             <div class="question-card">
                 <p class="font-semibold text-lg">1. ¿Qué métricas matemáticas se utilizan comúnmente en los algoritmos de árboles de decisión para evaluar la calidad de una división y decidir qué característica usar en un nodo?</p>
                 <label class="radio-label"><input type="radio" name="q1" value="A" required> a) El error absoluto medio (MAE) y la similitud del coseno espacial.</label>
@@ -93,6 +96,14 @@
 
             <h2 class="text-xl font-bold text-slate-700 mb-4 mt-8 border-b pb-2">Sección 2: Arreglos de Datos con Pandas</h2>
 
+<p>Pandas es la biblioteca de Python más utilizada para el análisis y la manipulación de datos.  La gran ventaja de Pandas es que permite manejar datos estructurados de forma tabular —como si fuera una hoja de cálculo— pero con la potencia y velocidad de un lenguaje de programación, facilitando tareas de limpieza, transformación y análisis estadístico.
+</p>
+  <p>
+El corazón de Pandas reside en dos estructuras fundamentales: las Series  y el DataFrame. Un DataFrame está compuesto por filas y columnas, donde cada columna tiene un nombre y cada fila un índice único. Al cargar un archivo (como un CSV o Excel) en un DataFrame, Pandas no solo almacena los valores, sino que entiende la relación entre ellos, permitiéndonos realizar consultas complejas en una sola línea de código.
+</p>
+	    
+<img src="pandas.png" alt="pandas" class="w-2/3 mx-auto mb-4" onerror="this.style.display='none'">
+	    
             <div class="question-card">
                 <p class="font-semibold text-lg">4. ¿Cuál es la principal diferencia conceptual entre una Series y un DataFrame en Pandas?</p>
                 <label class="radio-label"><input type="radio" name="q4" value="A" required> a) Una Series es unidimensional (una sola columna) y un DataFrame es bidimensional (una tabla).</label>
@@ -112,8 +123,9 @@
             </div>
 
             <div class="question-card">
-                <p class="font-semibold text-lg">6. Si necesitas seleccionar únicamente la columna 'Edad' de un DataFrame, ¿cuál es la sintaxis correcta?</p>
-                <label class="radio-label"><input type="radio" name="q6" value="A" required> a) datos['Edad']</label>
+              <p class="font-semibold text-lg">6. Si necesitas seleccionar únicamente la columna 'Edad' de un DataFrame, ¿cuál es la sintaxis correcta?</p>
+	      <label class="radio-label"><input type="radio" name="q6" value="A" required> a) datos.column('Edad')</label>
+                <label class="radio-label"><input type="radio" name="q6" value="B" required> a) datos['Edad']</label>
                 <label class="radio-label"><input type="radio" name="q6" value="B"> b) datos.select('Edad')</label>
                 <label class="radio-label"><input type="radio" name="q6" value="C"> c) get.Edad(datos)</label>
                 <label class="radio-label"><input type="radio" name="q6" value="D"> d) datos{Edad}</label>
