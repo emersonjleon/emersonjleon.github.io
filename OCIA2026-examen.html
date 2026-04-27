@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Clasificatoria | Olimpiada Colombiana de IA</title>
+    <link rel="icon" type="image/png" href="logoIA.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .question-card { background: white; border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .radio-label { display: flex; align-items: flex-start; margin-top: 0.75rem; cursor: pointer; color: #334155; }
+        .radio-label input { margin-top: 0.3rem; margin-right: 0.75rem; cursor: pointer; }
+        .text-input { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 0.5rem; margin-top: 0.75rem; focus: outline-none; focus: ring-2; focus: ring-blue-500; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <div class="max-w-4xl mx-auto p-4 py-8">
+        <div class="text-center mb-8">
+            <img src="logoIA.png" alt="Logo IA" class="w-48 mx-auto mb-4" onerror="this.style.display='none'">
+            <h1 class="text-3xl font-bold text-slate-800">II Olimpiada Colombiana de Inteligencia Artificial</h1>
+            <h3 >Prueba Selectiva 2026</h3>
+            <div id="infoEstudiante" class="mt-4 inline-block bg-blue-50 text-blue-800 px-4 py-2 rounded-lg text-sm font-semibold border border-blue-100 shadow-sm hidden">
+                </div>
+        </div>
+
+
+	
+<!-- <div class="bg-white border-b sticky top-0 z-50 p-3 shadow-sm"> -->
+<!--     <div class="max-w-4xl mx-auto flex justify-between items-center text-xs md:text-sm"> -->
+<!--         <div class="flex items-center space-x-4"> -->
+<!--             <img src="logoIA.png" alt="Logo" class="h-8 w-auto"> -->
+<!--             <div> -->
+<!--                 <span class="font-bold text-slate-500 uppercase tracking-tighter">Estudiante:</span> -->
+<!--                 <span id="displayClave" class="text-blue-700 font-mono font-bold ml-1">Cargando...</span> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--         <div class="text-right"> -->
+<!--             <span class="font-bold text-slate-500 uppercase tracking-tighter">Hora de Inicio:</span> -->
+<!--             <span id="displayHoraInicio" class="text-slate-700 font-semibold ml-1">--:--:--</span> -->
+<!--         </div> -->
+<!--     </div> -->
+<!-- </div> -->
+
+
+        <h2 class="text-xl font-bold text-slate-700 mb-4 mt-8 border-b pb-2">Instrucciones</h2>
+	    <div>
+	      <ul>
+<li><b>Solo se permite ingresar una vez a esta prueba.</b> No cierres esta página hasta enviar los resultados con el botón que se encuentra al final.</li>
+<Li>El sistema registra el tiempo invertido en la prueba.</Li>
+<li>La prueba consta de 18 problemas, de selección múltiple y de respuesta corta.</li>
+<li> Los primeros problemas valen un punto por respuesta correcta, los últimos problemas valen tres puntos cada uno.
+<li>Se permite el uso de papel para operaciones, papel cuadriculado, implementos de escritura y ayudas digitales como entornos de programación y de IA y consultas en internet.</li>
+<li>No se permite la  ayuda de otras personas, o el uso de medios de comunicación, llamadas, chats, correos, etc.</li>
+<li>Tiene <b>90 minutos</b> para resolver los problemas e ir marcando respuestas.</li>
+<li>Para asegurar la integridad de la competencia
+<b>el Comité Organizador se reserva el derecho de rechazar resultados que a su juicio considere deshonestos.</b></li>
+</ul>
+	    </div>
+
+	
+        <form id="examenForm">
+            <h2 class="text-xl font-bold text-slate-700 mb-4 mt-8 border-b pb-2">Sección 1: Árboles de decisión</h2>
+
+            <div class="question-card">
+                <p class="font-semibold text-lg">1. ¿Qué métricas matemáticas se utilizan comúnmente en los algoritmos de árboles de decisión para evaluar la calidad de una división y decidir qué característica usar en un nodo?</p>
+                <label class="radio-label"><input type="radio" name="q1" value="A" required> a) El error absoluto medio (MAE) y la similitud del coseno espacial.</label>
+                <label class="radio-label"><input type="radio" name="q1" value="B"> b) La divergencia de Kullback-Leibler y el descenso de gradiente estocástico.</label>
+                <label class="radio-label"><input type="radio" name="q1" value="C"> c) El índice de impureza Gini y la ganancia de información (basada en la entropía).</label>
+                <label class="radio-label"><input type="radio" name="q1" value="D"> d) La distancia euclidiana entre centroides y el algoritmo de K-Medias.</label>
+                <label class="radio-label"><input type="radio" name="q1" value="E"> e) La función de activación Softmax y la regularización L1 (Lasso).</label>
+            </div>
+
+            <div class="question-card">
+                <p class="font-semibold text-lg">2. Un problema crónico de los árboles de decisión que se dejan crecer sin restricciones es su alta tendencia al sobreajuste (overfitting), creando modelos excesivamente complejos que memorizan el ruido de los datos de entrenamiento. ¿Cuál es el principal método estadístico o estructural para mitigar este problema en un árbol individual?</p>
+                <label class="radio-label"><input type="radio" name="q2" value="A" required> a) Inyectar ruido gaussiano directamente en las variables de entrada antes del entrenamiento.</label>
+                <label class="radio-label"><input type="radio" name="q2" value="B"> b) Aplicar técnicas de "poda" (pruning), limitando la profundidad máxima o exigiendo un número mínimo de muestras por nodo hoja.</label>
+                <label class="radio-label"><input type="radio" name="q2" value="C"> c) Aumentar la tasa de aprendizaje (learning rate) para forzar al modelo a converger más rápido en una solución general.</label>
+                <label class="radio-label"><input type="radio" name="q2" value="D"> d) Reemplazar los nodos lógicos (if-then) por capas convolucionales de reducción espacial (pooling).</label>
+                <label class="radio-label"><input type="radio" name="q2" value="E"> e) Eliminar aleatoriamente un porcentaje de los nodos hoja en cada época de entrenamiento (Dropout).</label>
+            </div>
+
+            <div class="question-card">
+                <p class="font-semibold text-lg">3. Un solo árbol de decisión suele sufrir de "alta varianza", lo que significa que un pequeño cambio en los datos de entrenamiento puede generar una topología de árbol completamente diferente. ¿Cómo aborda el algoritmo de Bosques Aleatorios (Random Forest) este defecto específico de los árboles de decisión?</p>
+                <label class="radio-label"><input type="radio" name="q3" value="A" required> a) Entrena una secuencia de árboles poco profundos donde cada nuevo árbol se concentra matemáticamente en corregir los errores que cometió el árbol anterior.</label>
+                <label class="radio-label"><input type="radio" name="q3" value="B"> b) Condensa el árbol en un solo nodo matemático gigantesco utilizando reducción de dimensionalidad (PCA) sobre las etiquetas.</label>
+                <label class="radio-label"><input type="radio" name="q3" value="C"> c) Convierte los nodos de división binaria en nodos probabilísticos bayesianos que evalúan múltiples resultados simultáneamente.</label>
+                <label class="radio-label"><input type="radio" name="q3" value="D"> d) Entrena múltiples árboles independientes utilizando subconjuntos aleatorios de datos y de características, y luego promedia sus predicciones para estabilizar el resultado.</label>
+                <label class="radio-label"><input type="radio" name="q3" value="E"> e) Permite que las ramas del árbol se conecten formando bucles o grafos cíclicos, dándole al modelo una memoria a corto plazo.</label>
+            </div>
+
+            <h2 class="text-xl font-bold text-slate-700 mb-4 mt-8 border-b pb-2">Sección 2: Arreglos de Datos con Pandas</h2>
+
+            <div class="question-card">
+                <p class="font-semibold text-lg">4. ¿Cuál es la principal diferencia conceptual entre una Series y un DataFrame en Pandas?</p>
+                <label class="radio-label"><input type="radio" name="q4" value="A" required> a) Una Series es unidimensional (una sola columna) y un DataFrame es bidimensional (una tabla).</label>
+                <label class="radio-label"><input type="radio" name="q4" value="B"> b) Las Series solo aceptan números, mientras que los DataFrames aceptan cualquier tipo de dato.</label>
+                <label class="radio-label"><input type="radio" name="q4" value="C"> c) Un DataFrame es una versión más antigua de la Series.</label>
+                <label class="radio-label"><input type="radio" name="q4" value="D"> d) No hay diferencia; ambos términos se usan indistintamente.</label>
+                <label class="radio-label"><input type="radio" name="q4" value="E"> e) Las Series son secuencias de Dataframes ordenadas e indexadas.</label>
+            </div>
+
+            <div class="question-card">
+                <p class="font-semibold text-lg">5. ¿Qué método usarías para ver rápidamente los tipos de datos de cada columna y si hay valores nulos?</p>
+                <label class="radio-label"><input type="radio" name="q5" value="A" required> a) df.head()</label>
+                <label class="radio-label"><input type="radio" name="q5" value="B"> b) df.columns</label>
+                <label class="radio-label"><input type="radio" name="q5" value="C"> c) df.show_types()</label>
+                <label class="radio-label"><input type="radio" name="q5" value="D"> d) df.describe()</label>
+                <label class="radio-label"><input type="radio" name="q5" value="E"> e) df.info()</label>
+            </div>
+
+            <div class="question-card">
+                <p class="font-semibold text-lg">6. Si necesitas seleccionar únicamente la columna 'Edad' de un DataFrame, ¿cuál es la sintaxis correcta?</p>
+                <label class="radio-label"><input type="radio" name="q6" value="A" required> a) datos['Edad']</label>
+                <label class="radio-label"><input type="radio" name="q6" value="B"> b) datos.select('Edad')</label>
+                <label class="radio-label"><input type="radio" name="q6" value="C"> c) get.Edad(datos)</label>
+                <label class="radio-label"><input type="radio" name="q6" value="D"> d) datos{Edad}</label>
+            </div>
+
+            <div class="question-card">
+                <p class="font-semibold text-lg">7. Tienes una columna 'Fecha' reconocida como texto. ¿Cuál es el método para convertirla a formato de tiempo?</p>
+                <label class="radio-label"><input type="radio" name="q7" value="A" required> a) pd.to_datetime(df['Fecha'])</label>
+                <label class="radio-label"><input type="radio" name="q7" value="B"> b) df['Fecha'].astype(float)</label>
+                <label class="radio-label"><input type="radio" name="q7" value="C"> c) df['Fecha'].str.split('-')</label>
+                <label class="radio-label"><input type="radio" name="q7" value="D"> d) pd.format_date(df['Fecha'])</label>
+                <label class="radio-label"><input type="radio" name="q7" value="E"> e) pd.to_date(df['Fecha'])</label>
+            </div>
+
+            <div class="question-card">
+                <p class="font-semibold text-lg">8. Deseas filtrar las filas donde 'Ventas' sea mayor a 500 y 'Zona' sea igual a 'Norte'. ¿Cómo escribes la condición?</p>
+                <label class="radio-label"><input type="radio" name="q8" value="A" required> a) df[df['Ventas'] > 500 & df['Zona'] == 'Norte']</label>
+                <label class="radio-label"><input type="radio" name="q8" value="B"> b) df[(df['Ventas'] > 500) & (df['Zona'] == 'Norte')]</label>
+                <label class="radio-label"><input type="radio" name="q8" value="C"> c) [row for row in df if df['Ventas'] > 500 and df['Zona'] == 'Norte']</label>
+                <label class="radio-label"><input type="radio" name="q8" value="D"> d) df.filter('Ventas' > 500 and 'Zona' == 'Norte')</label>
+                <label class="radio-label"><input type="radio" name="q8" value="E"> e) df.where(Ventas > 500 , Zona == 'Norte')</label>
+            </div>
+
+            <div class="question-card">
+                <p class="font-semibold text-lg">9. Si ejecutas df.groupby('Categoria')['Precio'].mean(), ¿qué resultado obtendrás?</p>
+                <label class="radio-label"><input type="radio" name="q9" value="A" required> a) Una tabla con las filas originales y una columna extra con los promedios del precio.</label>
+                <label class="radio-label"><input type="radio" name="q9" value="B"> b) Un Dataframe en donde las categorías con precios similares se agrupan y se calculan los promedios.</label>
+                <label class="radio-label"><input type="radio" name="q9" value="C"> c) Un error, no se puede calcular el promedio de una columna de texto.</label>
+                <label class="radio-label"><input type="radio" name="q9" value="D"> d) Una Series con las categorías únicas como índice y sus promedios de precio.</label>
+                <label class="radio-label"><input type="radio" name="q9" value="E"> e) El promedio general de todos los precios.</label>
+            </div>
+
+            <h2 class="text-xl font-bold text-slate-700 mb-4 mt-8 border-b pb-2">Sección 3: Explorando un dataset 'World University Rankings'</h2>
+
+	    <div class="mb-8  pb-2">
+	      <p>Las siguientes preguntas de selección múltiple y respuesta corta son sobre el dataset <b> <code>timesData.csv </code></b> que puedes encontrar  en el siguiente Google Colab:
+	      
+<b><a href='https://colab.research.google.com/drive/1xH52Ao4XUfeypAUYnyW2ebZjUduvEtst?usp=sharing' target="_blank" > https://colab.research.google.com/drive/1xH52Ao4XUfeypAUYnyW2ebZjUduvEtst?usp=sharing </a></b>
+	      </p>
+	       <p>
+
+ Se asume que has guardado la información de <b> <code>timesData.csv</code></b> en un DataFrame llamado <b><code>df</code></b>.
+
+	      </p>
+	    </div>
+	    
+	    
+	    
+            <div class="question-card">
+                <p class="font-semibold text-lg">10. Ejecuta el comando df.shape. ¿Cuántas filas y cuántas columnas tiene tu conjunto de datos en total?</p>
+                <label class="radio-label"><input type="radio" name="q10" value="A" required> a) 2200 filas y 15 columnas</label>
+                <label class="radio-label"><input type="radio" name="q10" value="B"> b) 1322 filas y 27 columnas</label>
+                <label class="radio-label"><input type="radio" name="q10" value="C"> c) 2603 filas y 14 columnas</label>
+                <label class="radio-label"><input type="radio" name="q10" value="D"> d) 1500 filas y 18 columnas</label>
+                <label class="radio-label"><input type="radio" name="q10" value="E"> e) 2143 filas y 22 columnas</label>
+            </div>
+
+            <div class="question-card">
+                <p class="font-semibold text-lg">11. ¿Cuál es el nombre de la columna que tiene la mayor cantidad de valores nulos?</p>
+                <label class="radio-label"><input type="radio" name="q11" value="A" required> a) international_students</label>
+                <label class="radio-label"><input type="radio" name="q11" value="B"> b) total_score</label>
+                <label class="radio-label"><input type="radio" name="q11" value="C"> c) world_rank</label>
+                <label class="radio-label"><input type="radio" name="q11" value="D"> d) female_male_ratio</label>
+                <label class="radio-label"><input type="radio" name="q11" value="E"> e) Ninguna, todos los valores son no nulos</label>
+            </div>
+
+            <div class="question-card">
+                <p class="font-semibold text-lg">12. Al explorar timesData.csv, notas que hay múltiples universidades del mismo país. ¿Qué método aplicas sobre la columna country para contar cuántas veces aparece cada país en toda la tabla?</p>
+                <label class="radio-label"><input type="radio" name="q12" value="A" required> a) df['country'].sum()</label>
+                <label class="radio-label"><input type="radio" name="q12" value="B"> b) df['country'].count_all()</label>
+                <label class="radio-label"><input type="radio" name="q12" value="C"> c) df['country'].value_counts()</label>
+                <label class="radio-label"><input type="radio" name="q12" value="D"> d) df.groupby('country').add()</label>
+            </div>
+
+            <h2 class="text-xl font-bold text-slate-700 mb-4 mt-8 border-b pb-2">Preguntas Finales</h2>
+
+            <div class="question-card">
+                <p class="font-semibold text-lg">13. ¿Qué universidad en la tabla tiene el máximo número de estudiantes (num_students)?</p>
+                <label class="radio-label"><input type="radio" name="q13" value="A" required> a) Cairo University</label>
+                <label class="radio-label"><input type="radio" name="q13" value="B"> b) Anadolu University</label>
+                <label class="radio-label"><input type="radio" name="q13" value="C"> c) National Autonomous University of Mexico</label>
+                <label class="radio-label"><input type="radio" name="q13" value="D"> d) Sapienza University of Rome</label>
+                <label class="radio-label"><input type="radio" name="q13" value="E"> e) University of South Africa</label>
+            </div>
+
+            <div class="question-card">
+                <p class="font-semibold text-lg">14. Mirando los datos correspondientes al año 2011 ¿Cuál es la mejor universidad europea en este ranking?</p>
+                <label class="radio-label"><input type="radio" name="q14" value="A" required> a) Harvard University</label>
+                <label class="radio-label"><input type="radio" name="q14" value="B"> b) University of Cambridge</label>
+                <label class="radio-label"><input type="radio" name="q14" value="C"> c) University of Oxford</label>
+                <label class="radio-label"><input type="radio" name="q14" value="D"> d) ETH Zurich</label>
+                <label class="radio-label"><input type="radio" name="q14" value="E"> e) (b) y (c) son correctas.</label>
+            </div>
+
+            <div class="question-card">
+                <p class="font-semibold text-lg">15. Revisa la columna year. ¿Cuál es el año más reciente registrado en este DataFrame en particular?</p>
+                <input type="text" name="q15" class="text-input" placeholder="Escribe tu respuesta aquí..." required>
+            </div>
+
+            <div class="question-card">
+                <p class="font-semibold text-lg">16. Filtra el DataFrame por el país ("country") correspondiente a 'Colombia'. ¿Cuántas filas (registros) en total encuentras para este país sumando todos los años?</p>
+                <input type="text" name="q16" class="text-input" placeholder="Ingresa el número..." required>
+            </div>
+
+            <div class="question-card">
+                <p class="font-semibold text-lg">17. Todo el mundo sabe que Estados Unidos y el Reino Unido dominan los rankings. Si filtras el DataFrame para excluir a 'USA' y 'United Kingdom', ¿qué país logró meter la mayor cantidad de universidades en el Top 100 durante el año 2014?</p>
+                <input type="text" name="q17" class="text-input" placeholder="Nombre del país (en inglés)..." required>
+            </div>
+
+            <div class="question-card">
+                <p class="font-semibold text-lg">18. El análisis temporal es clave. ¿Qué universidad logró el mayor aumento absoluto en su puntaje total (total_score) si comparamos su registro del año 2012 con el del año 2015?</p>
+                <input type="text" name="q18" class="text-input" placeholder="Nombre exacto de la universidad (en inglés)..." required>
+            </div>
+
+            <div class="mt-8 mb-12">
+                <button type="submit" id="btnEnviar" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl text-lg transition-colors shadow-lg">
+                    Enviar Respuestas de la Prueba
+                </button>
+            </div>
+            
+            <div id="loadingMsg" class="text-center text-blue-600 font-bold hidden mb-8">Enviando respuestas, por favor espera...</div>
+            <div id="successMsg" class="text-center text-green-600 font-bold hidden mb-8 border border-green-300 bg-green-50 p-4 rounded-lg">¡Tus respuestas han sido registradas con éxito! Ya puedes cerrar esta ventana.</div>
+            <div id="errorMsg" class="text-center text-red-600 font-bold hidden mb-8 border border-red-300 bg-red-50 p-4 rounded-lg">Hubo un error de conexión al enviar el examen. Intenta oprimir el botón nuevamente.</div>
+
+        </form>
+    </div>
+
+    <script>
+        // 1. Obtener la hora de inicio al abrir la página
+        const horaInicio = new Date().toISOString();
+        
+        // 2. Extraer las variables de la URL (metadatos del login)
+        const urlParams = new URLSearchParams(window.location.search);
+        const estudianteClave = urlParams.get('estudiante') || 'DESCONOCIDO';
+        const colegio = urlParams.get('colegio') || 'DESCONOCIDO';
+        const sesion = urlParams.get('sesion') || 'DESCONOCIDA';
+
+        // Mostrar un pequeño banner para asegurar que sí entraron por el login
+        if(estudianteClave !== 'DESCONOCIDO') {
+            const infoDiv = document.getElementById('infoEstudiante');
+            infoDiv.innerText = `ID Estudiante: ${estudianteClave} | Colegio: ${colegio} | Inicio: ${sesion}  `;
+            infoDiv.classList.remove('hidden');
+        }
+
+        // 3. Manejar el envío del formulario
+        document.getElementById('examenForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // La alerta de confirmación
+            const confirmado = confirm("¿Estás seguro de que deseas enviar tus respuestas? Revisa bien, no podrás cambiarlas después.");
+            
+            if (confirmado) {
+                // Si el estudiante dice que sí, preparamos el envío
+                document.getElementById('btnEnviar').classList.add('hidden');
+                document.getElementById('loadingMsg').classList.remove('hidden');
+                document.getElementById('errorMsg').classList.add('hidden');
+
+                const horaFinal = new Date().toISOString();
+                const formData = new FormData(this);
+                
+                // Agregamos los metadatos ocultos al FormData
+                formData.append('clave_estudiante', estudianteClave);
+                formData.append('colegio', colegio);
+                formData.append('sesion', sesion);
+                formData.append('hora_inicio', horaInicio);
+                formData.append('hora_final', horaFinal);
+
+                // CAMBIA ESTA URL por tu dirección de PythonAnywhere
+                fetch('https://TU_USUARIO.pythonanywhere.com/submit-examen', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('loadingMsg').classList.add('hidden');
+                    if (data.status === 'success') {
+                        document.getElementById('successMsg').classList.remove('hidden');
+                        // Opcional: Bloquear todos los inputs para que no los editen más
+                        const inputs = document.querySelectorAll('input');
+                        inputs.forEach(input => input.disabled = true);
+                    } else {
+                        document.getElementById('errorMsg').classList.remove('hidden');
+                        document.getElementById('btnEnviar').classList.remove('hidden');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('loadingMsg').classList.add('hidden');
+                    document.getElementById('errorMsg').classList.remove('hidden');
+                    document.getElementById('btnEnviar').classList.remove('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
