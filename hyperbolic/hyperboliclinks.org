@@ -1,0 +1,21 @@
+Links de geometría hiperbólica:
+** Postulados de Euclides:
+https://es.wikipedia.org/wiki/Postulados_de_Euclides
+** pregunta:
+camino x pasos al frente, giro a la derecha, repito tres veces y regreso a donde comencé. Como es posible? (repito 5 veces?)
+** representaciones del espacio
+**** Mercator
+** curvatura:
+**** ddg presentation
+** teselaciones:
+https://elfnor.com/hyperbolic-tiling-in-3d.html
+
+** video con explicaciones hiperbólicas
+https://www.youtube.com/watch?v=zQo_S3yNa2w
+**** 3:00 crochet squares
+**** 5:00 animation, different models
+**** 9:00 fórmulas
+** video de portales no euclideanos:
+https://www.youtube.com/watch?v=yqUv2JO2BCs
+** strange video of spherical geometry
+https://www.youtube.com/watch?v=yY9GAyJtuJ0
